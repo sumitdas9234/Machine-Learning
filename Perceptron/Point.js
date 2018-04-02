@@ -8,14 +8,12 @@ function Point(x, y) {
   }
 }
 
-
-
 Point.prototype.render = function() {
   if (this.label == -1) {
-    fill(color(231, 76, 60)); //fill red
+    fill(0); //fill black
   } else {
-    fill(color(46, 204, 113)); //fill green
+    fill(255); //fill white
   }
-  noStroke();
+  stroke(0);
   ellipse(this.x, this.y, 15, 15);
 };

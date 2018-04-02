@@ -4,6 +4,7 @@ function Perceptron(inputs, outputs) {
   this.outputs = outputs; //The number of output nodes
   this.inputweights = []; //weights for each input node
   this.outputweight = []; //weights for each output node
+  this.LEARNING_RATE = 0.1;
 }
 
 //A function to randomly assign weights to each node in the list
@@ -31,4 +32,15 @@ Perceptron.prototype.guess = function(input) {
   }
   //pass the value to Activation Function and return the output
   return (this.activate(sum));
+};
+
+//A function to train the perceptron based on labellled data
+Perceptron.prototype.train = function(inputs, target) {
+  let guess = this.guess(inputs);
+  var error = target - guess;
+  if (error) {
+    for (let i = 0; i < this.inputweights.length; i++) {
+      this.inputweights[i] += error * inputs[i] * this.LEARNING_RATE;
+    }
+  }
 };
