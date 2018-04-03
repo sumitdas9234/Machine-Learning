@@ -5,7 +5,11 @@ function Perceptron(inputs, outputs) {
   this.inputweights = []; //weights for each input node
   this.outputweight = []; //weights for each output node
   this.bias = 1;
+<<<<<<< HEAD
   this.LEARNING_RATE = 0.01;
+=======
+  this.LEARNING_RATE = 0.1;
+>>>>>>> master
 }
 
 //A function to randomly assign weights to each node in the list
