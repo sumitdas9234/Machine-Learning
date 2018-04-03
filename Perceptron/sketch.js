@@ -1,9 +1,6 @@
 let Points = []; //To keep track of the training data
 var perceptron, trainingIndex, canvas; //global variable
-<<<<<<< HEAD
 var complete = false; //the flag to stop the draw function
-=======
->>>>>>> master
 
 
 //preload function
@@ -28,11 +25,7 @@ function setup() {
   console.log(perceptron.inputweights);
   //Initialize the training Index to 0, as we are going to train one point per mouse click for visual grepping
   trainingIndex = 0;
-<<<<<<< HEAD
   window.setInterval(trainPerceptron, 100);
-=======
-  var intervalID = window.setInterval(trainPerceptron, 100);
->>>>>>> master
 }
 
 function draw() {
@@ -57,20 +50,16 @@ function draw() {
     stroke(color(0, 151, 230));
     smooth();
     line(-300, (300 * (perceptron.inputweights[0] / perceptron.inputweights[1])), 300, -300 * (perceptron.inputweights[0] / perceptron.inputweights[1]));
-<<<<<<< HEAD
   }
   if (complete) {
     console.log("TRAINING COMPLETE !");
     console.log("\nFinal Weights: " + perceptron.inputweights[0] + "\t" + perceptron.inputweights[1] + "\nBias Weight: " + perceptron.inputweights[2]);
     noLoop();
-=======
->>>>>>> master
   }
   // noLoop();
 }
 
 
-<<<<<<< HEAD
 //Tain the Perceptron
 function trainPerceptron() {
   if (!complete) {
@@ -80,16 +69,6 @@ function trainPerceptron() {
 
     //display the weights and the Label. [DEBUG]
     console.log("Point: " + (trainingIndex) + "\nW1: " + perceptron.inputweights[0] + "     W2:" + perceptron.inputweights[1] + "\nBias Weight: " + perceptron.inputweights[2]);
-=======
-//On mouse Click do the following
-function trainPerceptron() {
-  //Train the perceptron on that Point
-  perceptron.train([Points[trainingIndex].x, Points[trainingIndex].y, Points[trainingIndex].bias], Points[trainingIndex].label);
-  trainingIndex++; //increase the training Index by 1
-
-  //display the weights and the Label. [DEBUG]
-  console.log("Point: " + (trainingIndex) + "\nW1: " + perceptron.inputweights[0] + "     W2:" + perceptron.inputweights[1] + "\nBias Weight: " + perceptron.inputweights[2]);
->>>>>>> master
 
     //for each point in the Points[]
     for (let i = 0; i < Points.length; i++) {
@@ -97,15 +76,9 @@ function trainPerceptron() {
       let guess = perceptron.guess([Points[i].x, Points[i].y]);
       // console.log("Guess: " + guess + " Label: " + Points[i].label);
 
-<<<<<<< HEAD
       //put the markers
       putmarkers(guess, Points[i]);
     }
-=======
-    //put the markers
-    putmarkers(guess, Points[i]);
-  }
->>>>>>> master
 
     //if trainingIndex reaches limit, reset to index 0
     if (trainingIndex == Points.length) {
