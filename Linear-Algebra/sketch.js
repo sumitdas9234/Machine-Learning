@@ -4,14 +4,18 @@ function setup() {
   canvas = createCanvas(750, 550);
   canvas.position(100, 80);
   setTitle("Linear Algebra");
-  A = new Matrix(3, 2);
-  B = new Matrix(3, 2);
+  A = new Matrix(3, 3);
+  B = new Matrix(3, 3);
   A.randomize(1, 10);
-  B.randomize(8, 16);
   console.log(A.matrix);
-  console.log(B.matrix);
-  console.log(A.add(B));
-  console.log(A.add(9.6));
+  // console.log(A.multiply(2).matrix);
+
+  var func = function(val) {
+    return val * 2;
+  }
+
+  let value = A.map(func);
+  console.log(value.matrix);
 }
 
 function draw() {
