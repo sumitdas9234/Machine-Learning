@@ -1,29 +1,34 @@
-var tree;
-var values = [];
+var dl, format, fileName, Iris_data;
+var NeuroNet;
 
-function randomize(limit, max, min) {
-  for (var i = 0; i < limit; i++) {
-    values.push(Math.floor(Math.random() * (max - min) + min));
-  }
+function preload() {
+  format = "csv";
+  fileName = "iris_training.csv";
+  dl = new DataLoader(fileName, format);
+  Iris_data = dl.load();
+  // console.log(Iris_data);
+  Iris_data = $.csv.toArrays(Iris_data);
 }
 
-
 function setup() {
-  canvas = createCanvas(750, 550);
+  canvas = createCanvas(1160, 550);
   canvas.position(100, 80);
-  setTitle("Binary Tree");
-  tree = new Tree();
-  randomize(20, -50, 50);
+  setTitle("Iris Classification");
+  let no_of_inputs = 4,
+    hidden_layers = [4, 4],
+    no_of_outputs = 3;
 
-  for (var i = 0; i < values.length; i++) {
-    tree.push(values[i]);
-  }
-  tree.traverse();
+
+  //define the Model
+  NeuroNet = new NeuralNet(no_of_inputs, hidden_layers, no_of_outputs); //Network(4, {4, 4}, 4)
+  //initialize random weights
+  NeuroNet.initializeWeights();
+
 }
 
 function draw() {
   background(255);
-
+  NeuroNet.render();
   noLoop();
 
 }

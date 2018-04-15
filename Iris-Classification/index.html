@@ -11,23 +11,32 @@
 
 
 
-  <div class="sidebar">
+  <!-- <div class="sidebar">
     <span class="logger">Console</span>
     <p class="console">
-      <!-- Console Here -->
+
     </p>
-  </div>
+  </div> -->
 
 
   <h1 class="header" id="title">
     Title
   </h2>
-   <script src="../assets/js/blackboard.js" charset="utf-8"></script>
+  <script type="text/javascript">
+  function setTitle(title) {
+    var header = document.getElementById('title');
+    header.innerHTML = title;
+  }
+  </script>
+  <script src="../assets/js/jquery-3.3.1.min.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/0.8.9/jquery.csv.min.js" charset="utf-8"></script>
+   <!-- <script src="../assets/js/blackboard.js" charset="utf-8"></script> -->
    <script src="../p5.min.js"></script>
    <script src="../addons/p5.dom.min.js"></script>
    <script src="../addons/p5.sound.min.js"></script>
-   <script src="tree.js"></script>
-   <script src="node.js"></script>
+   <script src="Perceptron.js"></script>
+   <script src="dataloader.js"></script>
+   <script src="NeuroNet.js"></script>
    <script src="sketch.js"></script>
 </body>
 
